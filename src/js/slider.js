@@ -1,3 +1,6 @@
+import $ from 'jquery';
+import 'slick-carousel';
+
 $(document).ready(function() {
     $('.glazing_slider').slick({
         infinite: true,
@@ -37,6 +40,7 @@ $(document).ready(function() {
             }
         }]
     });
+
     $('.decoration_slider').slick({
         infinite: true,
         slidesToShow: 4,
@@ -67,4 +71,10 @@ $(document).ready(function() {
             }
         }]
     });
-});   
+
+    // ✅ Добавляем passive: true после инициализации слайдеров
+    $('.slick-slider').each(function() {
+        this.addEventListener('touchstart', function() {}, { passive: true });
+        this.addEventListener('touchmove', function() {}, { passive: true });
+    });
+});
